@@ -218,7 +218,7 @@ def run_window_main(trans):
         def select_where():
             try:
                 mylist.delete(0, 'end')
-                if ck2_num==1 and ck1_num==1:
+                if ck2_num.get()==1 and ck1_num.get()==1:
                     link.conn()
                     para = {
                         'time': '%'+str(var_date.get())+'%',
@@ -232,13 +232,13 @@ def run_window_main(trans):
                     into_head_label(link.get_head())  # 改变表头
                     var_count.set(str(link.get_row()) + ' rows')  # 得到结果行数
                     link.close_conn()
-                elif ck2_num==0 and ck1_num==1:
+                elif ck2_num.get()==0 and ck1_num.get()==1:
                     link.conn()
                     para = {
                         'time': '%'+str(var_date.get())+'%',
                         'duty': '%'+str(var_liable.get())+'%',
                         'brand': '%'+str(var_brand.get())+'%',
-                        'status': str(1),
+                        'status': '1',
                     }
                     results = link.select_para(sql_search_pur, para)
                     for result in results:
@@ -246,13 +246,13 @@ def run_window_main(trans):
                     into_head_label(link.get_head())  # 改变表头
                     var_count.set(str(link.get_row()) + ' rows')  # 得到结果行数
                     link.close_conn()
-                elif ck2_num==1 and ck1_num==0:
+                elif ck2_num.get()==1 and ck1_num.get()==0:
                     link.conn()
                     para = {
                         'time': '%'+str(var_date.get())+'%',
                         'duty': '%'+str(var_liable.get())+'%',
                         'brand': '%'+str(var_brand.get())+'%',
-                        'status': str(0),
+                        'status': '0',
                     }
                     results = link.select_para(sql_search_pur, para)
                     for result in results:
@@ -677,7 +677,7 @@ def run_window_main(trans):
         def search_ord():
             try:
                 mylist.delete(0, 'end')
-                if ck_num2==1 and ck_num1==1:
+                if ck_num2.get()==1 and ck_num1.get()==1:
                     link.conn()
                     para = {
                         'rent_id': '%'+str(var_ordid.get())+'%',
@@ -694,7 +694,7 @@ def run_window_main(trans):
                     into_head_label(link.get_head())  # 改变表头
                     var_count.set(str(link.get_row()) + ' rows')  # 得到结果行数
                     link.close_conn()
-                elif ck_num2==0 and ck_num1==1:
+                elif ck_num2.get()==0 and ck_num1.get()==1:
                     link.conn()
                     para = {
                         'rent_id': '%' + str(var_ordid.get()) + '%',
@@ -703,7 +703,7 @@ def run_window_main(trans):
                         'user_id': '%' + str(var_uid.get()) + '%',
                         'stock_id': '%' + str(var_stid.get()) + '%',
                         'delman': '%' + str(var_de.get()) + '%',
-                        'status': str(1),
+                        'status': '1',
                     }
                     results = link.select_para(sql_ord_search, para)
                     for result in results:
@@ -711,7 +711,7 @@ def run_window_main(trans):
                     into_head_label(link.get_head())  # 改变表头
                     var_count.set(str(link.get_row()) + ' rows')  # 得到结果行数
                     link.close_conn()
-                elif ck_num2==1 and ck_num1==0:
+                elif ck_num2.get()==1 and ck_num1.get()==0:
                     link.conn()
                     para = {
                         'rent_id': '%' + str(var_ordid.get()) + '%',
@@ -720,7 +720,7 @@ def run_window_main(trans):
                         'user_id': '%' + str(var_uid.get()) + '%',
                         'stock_id': '%' + str(var_stid.get()) + '%',
                         'delman': '%' + str(var_de.get()) + '%',
-                        'status': str(0),
+                        'status': '0',
                     }
                     results = link.select_para(sql_ord_search, para)
                     for result in results:
